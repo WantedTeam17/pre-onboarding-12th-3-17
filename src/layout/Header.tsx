@@ -22,4 +22,11 @@ const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   background-color: ${colors.white};
+
+  @media (max-width: 600px) {
+    position: relative;
+    visibility: hidden;
+    height: 0;
+  }
 `;
+

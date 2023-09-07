@@ -4,6 +4,7 @@ import useFocus from "../hooks/useFocus";
 import { useState } from "react";
 import useDebounce from "../hooks/useDebounce";
 import processKeyboard from "../utils/processKeyboard";
+import styled from "styled-components";
 
 const SearchBar = () => {
   const [isFocus, handlerFocus] = useFocus();
@@ -21,7 +22,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div style={{ width: "100%" }}>
+    <SearchContainer>
       <Input
         handlerFocus={handlerFocus}
         handlerChange={handlerChange}
@@ -31,8 +32,19 @@ const SearchBar = () => {
       {isFocus && (
         <RelatedSearches query={query} terms={data} focusIdx={focusIdx} isLoading={isLoading} />
       )}
-    </div>
+    </SearchContainer>
   );
 };
 
 export default SearchBar;
+
+const SearchContainer = styled.div`
+  width: 100%;
+
+  @media (max-width: 600px) {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+`;

@@ -42,6 +42,10 @@ const InputWrap = styled.label`
   &:focus-within {
     border: 2px solid ${colors.primary};
   }
+
+  @media (max-width: 600px) {
+    border-radius: 0;
+  }
 `;
 
 const StyledInput = styled.input`

@@ -57,6 +57,10 @@ const RelatedSearchWrap = styled.div`
     color: ${colors.gray};
     margin: 0;
   }
+
+  @media (max-width: 600px) {
+    border-radius: 0;
+  }
 `;
 
 const LoadingText = styled.p`
