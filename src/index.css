@@ -1,5 +1,11 @@
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -15,8 +21,24 @@ code {
     monospace;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+button,
 input {
   font-family: "Nanum Gothic", sans-serif;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font: inherit;
 }
 
 h2 {
