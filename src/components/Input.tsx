@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
-import { IoSearchCircle } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa";
 import { colors } from "../constants/colors";
+import Button from "./Button";
 
 interface InputProps {
   handlerFocus: () => void;
@@ -25,7 +26,7 @@ const Input = ({
         onKeyDown={(e) => handlerPressKey(e.key)}
         value={value}
       ></StyledInput>
-      <IoSearchCircle color={colors.primary} size={80} />
+      <Button />
     </InputWrap>
   );
 };
@@ -52,19 +53,21 @@ const StyledInput = styled.input`
   width: 100%;
   border-radius: 3.125rem;
   padding: 1rem 0.5rem 0.8em 0.5rem;
-  border: none;
+  letter-spacing: -0.018em;
+  line-height: 1.6;
   font-size: 1.2rem;
+  height: 70px;
 
-  &:focus {
-    outline: none;
-    background-image: none;
+  &.focused {
+    border-color: #0072c6;
   }
 
   &::placeholder {
     background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png);
     background-size: 6%;
-    background-position: 0 center;
+    background-position: -3px center;
     background-repeat: no-repeat;
     text-indent: 6%;
+    font-size: 18px;
   }
 `;

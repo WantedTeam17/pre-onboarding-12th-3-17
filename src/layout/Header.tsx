@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <button>
-        <img src={Logo} alt="한국 임상정보 로고" height={36} />
+        <img src={Logo} alt="한국 임상정보 로고" height={55} />
         <A11yHidden>한국 임상정보</A11yHidden>
       </button>
       <ul>

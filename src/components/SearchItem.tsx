@@ -9,7 +9,6 @@ interface SearchItemProps {
 }
 
 const SearchItem = ({ string, isFocusing, keyword }: SearchItemProps) => {
-
   const highlightKeyword = (text: string, keyword: string): JSX.Element => {
     const startIndex = text.toLowerCase().indexOf(keyword.toLowerCase());
     if (startIndex === -1) return <>{text}</>;
@@ -54,5 +53,5 @@ const SearchItemBox = styled.div`
 
 const StrongText = styled.strong`
   font-weight: bold;
-  color: red;  // 또는 다른 원하는 색상
+  color: red; // 또는 다른 원하는 색상
 `;

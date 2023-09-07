@@ -30,7 +30,12 @@ const SearchBar = () => {
         value={query}
       />
       {isFocus && (
-        <RelatedSearches query={query} terms={data} focusIdx={focusIdx} isLoading={isLoading} />
+        <RelatedSearches
+          query={query}
+          terms={data}
+          focusIdx={focusIdx}
+          isLoading={isLoading}
+        />
       )}
     </SearchContainer>
   );
@@ -39,7 +44,10 @@ const SearchBar = () => {
 export default SearchBar;
 
 const SearchContainer = styled.div`
+  max-width: 490px;
   width: 100%;
+  margin: 0 auto;
+  z-index: 1000;
 
   @media (max-width: 600px) {
     width: 100vw;
