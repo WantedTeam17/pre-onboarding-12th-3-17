@@ -20,7 +20,10 @@ const Input = ({
       <StyledInput
         placeholder="질환명을 입력해 주세요"
         onFocus={() => handlerFocus()}
-        onBlur={() => handlerFocus()}
+        onBlur={() => {
+          handlerFocus();
+          handlerChange("");
+        }}
         onChange={(e) => handlerChange(e.target.value)}
         onKeyDown={(e) => handlerPressKey(e.key)}
         value={value}
