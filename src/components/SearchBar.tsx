@@ -21,12 +21,17 @@ const SearchBar = () => {
     processKeyboard(target, focusIdx, setFocusIdx, setQuery, data);
   };
 
+  const handlerClear = () => {
+    setQuery("");
+  };
+
   return (
     <SearchContainer>
       <Input
         handlerFocus={handlerFocus}
         handlerChange={handlerChange}
         handlerPressKey={handlerPressKey}
+        handlerClear={handlerClear}
         value={query}
       />
       {isFocus && (

@@ -1,9 +1,10 @@
 import { styled } from "styled-components";
-import { FaSearch } from "react-icons/fa";
 import { colors } from "../constants/colors";
+import ClearButton from "./ClearButton";
 import Button from "./Button";
 
 interface InputProps {
+  handlerClear: () => void;
   handlerFocus: () => void;
   handlerChange: (target: string) => any;
   handlerPressKey: (target: string) => any;
@@ -14,6 +15,7 @@ const Input = ({
   handlerFocus,
   handlerChange,
   handlerPressKey,
+  handlerClear,
   value,
 }: InputProps) => {
   return (
@@ -26,6 +28,7 @@ const Input = ({
         onKeyDown={(e) => handlerPressKey(e.key)}
         value={value}
       ></StyledInput>
+      <ClearButton value={value} handlerClear={handlerClear} />
       <Button />
     </InputWrap>
   );
@@ -80,7 +83,7 @@ const StyledInput = styled.input`
 
   @media (max-width: 600px) {
     font-size: 1rem;
-    
+
     &::placeholder {
       background-size: 10%;
       text-indent: 10%;
