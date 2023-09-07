@@ -1,10 +1,11 @@
+import React from "react";
 import { TermsType } from "../constants/@type/termsType";
 
 const processKeyboard = (
   target: string,
   focusIdx: number,
-  setFocusIdx: any,
-  setValue: any,
+  setFocusIdx: React.Dispatch<React.SetStateAction<number>>,
+  setValue: React.Dispatch<React.SetStateAction<string>>,
   terms: TermsType[]
 ) => {
   if (target === "ArrowDown") {
