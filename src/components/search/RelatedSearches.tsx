@@ -1,17 +1,15 @@
 import { useEffect, useRef } from "react";
 import { styled } from "styled-components";
-import { colors } from "../constants/colors";
 import SearchItem from "./SearchItem";
-import { ZERO } from "../constants/number";
-import useMovingScrollToKeyboard from "../hooks/useMovingScrollToKeyboard";
+import { TermsType } from "../../constants/@type/termsType";
+import useMovingScrollToKeyboard from "../../hooks/useMovingScrollToKeyboard";
+import { ZERO } from "../../constants/number";
+import { colors } from "../../constants/colors";
 
 interface RelatedSearchProps {
   query: string;
   focusIdx: number;
-  terms: {
-    sickCd: string;
-    sickNm: string;
-  }[];
+  terms: TermsType[];
   isLoading: boolean;
 }
 

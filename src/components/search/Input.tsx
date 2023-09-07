@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
-import { colors } from "../constants/colors";
-import ClearButton from "./ClearButton";
-import Button from "./Button";
+import ClearButton from "../ui/ClearButton";
+import Button from "../ui/Button";
+import { colors } from "../../constants/colors";
 
 interface InputProps {
   handlerClear: () => void;
