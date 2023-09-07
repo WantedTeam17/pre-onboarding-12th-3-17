@@ -33,6 +33,7 @@ const RelatedSearches = ({ query, focusIdx, terms, isLoading }: RelatedSearchPro
                   string={term.sickNm}
                   key={idx}
                   isFocusing={focusIdx === idx}
+                  keyword={query}
                 />
               ))}
             </>
