@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { localCache } from "../utils/localCaching";
 import { Axios } from "../api/axios";
 import { TermsType } from "../constants/@type/termsType";
+import { KOREAN_REGEX } from "../constants/regex";
 
 const useDebounce = (value: string, delay: number) => {
   const [debounceValue, setDebounceValue] = useState(value);
@@ -19,6 +20,8 @@ const useDebounce = (value: string, delay: number) => {
   }, [value]);
 
   useEffect(() => {
+    if (KOREAN_REGEX.test(debounceValue)) return;
+
     const fetchData = async () => {
       setIsLoading(true);
 
