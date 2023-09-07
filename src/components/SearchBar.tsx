@@ -5,17 +5,18 @@ import { useState } from "react";
 import useDebounce from "../hooks/useDebounce";
 import processKeyboard from "../utils/processKeyboard";
 import styled from "styled-components";
+import { useRecentSearches } from "../hooks/useRecentSearches";
 
 const SearchBar = () => {
   const [isFocus, handlerFocus] = useFocus();
   const [focusIdx, setFocusIdx] = useState<number>(-1);
   const [query, setQuery] = useState<string>("");
-
   const { data, isLoading } = useDebounce(query, 500);
+
+  const { recentSearches, addRecentSearch } = useRecentSearches();
 
   const handlerChange = (target: string) => {
     setQuery(target);
-
     if (target === "") setFocusIdx(-1);
   };
 
@@ -27,6 +28,12 @@ const SearchBar = () => {
     setQuery("");
   };
 
+  const handleEnter = () => {
+    if (query.trim() !== "") {
+      addRecentSearch(query);
+    }
+  };
+
   return (
     <SearchContainer>
       <Input
@@ -35,15 +42,17 @@ const SearchBar = () => {
         handlerPressKey={handlerPressKey}
         handlerClear={handlerClear}
         value={query}
+        handleEnter={handleEnter}
       />
-      {isFocus && (
-        <RelatedSearches
-          query={query}
-          terms={data}
-          focusIdx={focusIdx}
-          isLoading={isLoading}
-        />
-      )}
+      {/* {isFocus && ( */}
+      <RelatedSearches
+        query={query}
+        terms={data}
+        focusIdx={focusIdx}
+        isLoading={isLoading}
+        recentSearches={recentSearches}
+      />
+      {/* )} */}
     </SearchContainer>
   );
 };

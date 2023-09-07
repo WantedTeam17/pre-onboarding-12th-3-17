@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { colors } from "../constants/colors";
 import SearchItem from "./SearchItem";
@@ -13,6 +13,7 @@ interface RelatedSearchProps {
     sickNm: string;
   }[];
   isLoading: boolean;
+  recentSearches: string[];
 }
 
 const RelatedSearches = ({
@@ -20,9 +21,8 @@ const RelatedSearches = ({
   focusIdx,
   terms,
   isLoading,
+  recentSearches,
 }: RelatedSearchProps) => {
-  // TODO: localstorage에서 캐싱되어 있는 검색어들 불러오기
-
   const [relatedSearchRef, itemRefs, movingScrollToKeyboard] =
     useMovingScrollToKeyboard(focusIdx);
 
@@ -37,8 +37,17 @@ const RelatedSearches = ({
       ) : (
         <>
           {query && <SearchItem string={query} isFocusing={false} />}
+
           {!terms || terms.length === ZERO ? (
-            <p>추천 검색어 없음</p>
+            <ListContainer>
+              <p>최근 검색어</p>
+              <SearchList>
+                {recentSearches.map((recentSearch, index) => (
+                  <ListItem key={index}>{recentSearch}</ListItem>
+                ))}
+              </SearchList>
+              <p>추천 검색어 없음</p>
+            </ListContainer>
           ) : (
             <>
               <p>추천 검색어</p>
@@ -60,7 +69,35 @@ const RelatedSearches = ({
     </RelatedSearchWrap>
   );
 };
+
 export default RelatedSearches;
+
+const ListContainer = styled.div`
+  padding: 10px;
+  width: 100%;
+
+  & > p {
+    padding-top: 10px;
+    color: #979ea5;
+  }
+`;
+
+const SearchList = styled.ul`
+  padding-top: 5px;
+`;
+
+const ListItem = styled.li`
+  margin-top: 2px;
+  padding: 8px 2px;
+  width: 100%;
+  font-weight: 400;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eef1f1;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  }
+`;
 
 const RelatedSearchWrap = styled.div`
   display: flex;
