@@ -2,7 +2,8 @@ import { useEffect, useRef } from "react";
 import { styled } from "styled-components";
 import { colors } from "../constants/colors";
 import SearchItem from "./SearchItem";
-import { MAX_TERMS_NUM, ZERO } from "../constants/number";
+import { ZERO } from "../constants/number";
+import useMovingScrollToKeyboard from "../hooks/useMovingScrollToKeyboard";
 
 interface RelatedSearchProps {
   query: string;
@@ -21,21 +22,9 @@ const RelatedSearches = ({
   isLoading,
 }: RelatedSearchProps) => {
   // TODO: localstorage에서 캐싱되어 있는 검색어들 불러오기
-  const relatedSearchRef = useRef<HTMLDivElement>(null);
-  const itemRefs = useRef<HTMLDivElement[]>([]);
 
-  const movingScrollToKeyboard = () => {
-    const container = relatedSearchRef.current;
-    const selectedItem = itemRefs.current[focusIdx];
-
-    if (container && selectedItem) {
-      const topPos = selectedItem.offsetTop;
-      const itemHeight = selectedItem.offsetHeight;
-
-      container.scrollTop =
-        topPos - container.offsetHeight / 0.7 + itemHeight / 0.7;
-    }
-  };
+  const [relatedSearchRef, itemRefs, movingScrollToKeyboard] =
+    useMovingScrollToKeyboard(focusIdx);
 
   useEffect(() => {
     movingScrollToKeyboard();
