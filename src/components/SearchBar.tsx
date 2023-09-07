@@ -15,6 +15,8 @@ const SearchBar = () => {
 
   const handlerChange = (target: string) => {
     setQuery(target);
+
+    if (target === "") setFocusIdx(-1);
   };
 
   const handlerPressKey = (target: string) => {
@@ -30,7 +32,12 @@ const SearchBar = () => {
         value={query}
       />
       {isFocus && (
-        <RelatedSearches query={query} terms={data} focusIdx={focusIdx} isLoading={isLoading} />
+        <RelatedSearches
+          query={query}
+          terms={data}
+          focusIdx={focusIdx}
+          isLoading={isLoading}
+        />
       )}
     </SearchContainer>
   );
