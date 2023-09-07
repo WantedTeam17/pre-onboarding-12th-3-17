@@ -44,15 +44,15 @@ const SearchBar = () => {
         value={query}
         handleEnter={handleEnter}
       />
-      {/* {isFocus && ( */}
-      <RelatedSearches
-        query={query}
-        terms={data}
-        focusIdx={focusIdx}
-        isLoading={isLoading}
-        recentSearches={recentSearches}
-      />
-      {/* )} */}
+      {isFocus && (
+        <RelatedSearches
+          query={query}
+          terms={data}
+          focusIdx={focusIdx}
+          isLoading={isLoading}
+          recentSearches={recentSearches}
+        />
+      )}
     </SearchContainer>
   );
 };

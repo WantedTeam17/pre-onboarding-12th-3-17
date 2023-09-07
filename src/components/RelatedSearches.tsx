@@ -4,6 +4,7 @@ import { colors } from "../constants/colors";
 import SearchItem from "./SearchItem";
 import { ZERO } from "../constants/number";
 import useMovingScrollToKeyboard from "../hooks/useMovingScrollToKeyboard";
+import RecentSearchList from "./RecentSearchList";
 
 interface RelatedSearchProps {
   query: string;
@@ -39,15 +40,7 @@ const RelatedSearches = ({
           {query && <SearchItem string={query} isFocusing={false} />}
 
           {!terms || terms.length === ZERO ? (
-            <ListContainer>
-              <p>최근 검색어</p>
-              <SearchList>
-                {recentSearches.map((recentSearch, index) => (
-                  <ListItem key={index}>{recentSearch}</ListItem>
-                ))}
-              </SearchList>
-              <p>추천 검색어 없음</p>
-            </ListContainer>
+            <RecentSearchList recentSearches={recentSearches} />
           ) : (
             <>
               <p>추천 검색어</p>
