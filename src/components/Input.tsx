@@ -77,10 +77,13 @@ const StyledInput = styled.input`
 
   @media (max-width: 600px) {
     font-size: 1rem;
-    
+    padding: 0.5rem;
+  }
+
+  @media (max-width: 320px) {
     &::placeholder {
-      background-size: 10%;
-      text-indent: 10%;
+      background-size: 9%;
+      text-indent: 9%;
     }
   }
 `;
