@@ -10,27 +10,35 @@ interface RelatedSearchProps {
     sickCd: string;
     sickNm: string;
   }[];
+  isLoading: boolean;
 }
 
-const RelatedSearches = ({ query, focusIdx, terms }: RelatedSearchProps) => {
+const RelatedSearches = ({ query, focusIdx, terms, isLoading }: RelatedSearchProps) => {
   // TODO: localstorage에서 캐싱되어 있는 검색어들 불러오기
+  
+<LoadingText>로딩 중..</LoadingText>
+
   return (
     <RelatedSearchWrap>
-      {query && <SearchItem string={query} isFocusing={false} />}
-      {!terms || terms.length === ZERO ? (
-        <p>추천 검색어 없음</p>
+      {isLoading ? (
+        <LoadingText>로딩 중..</LoadingText>
       ) : (
         <>
-          <p>추천 검색어</p>
-          {terms.map((term, idx) => {
-            return (
-              <SearchItem
-                string={term.sickNm}
-                key={idx}
-                isFocusing={focusIdx === idx}
-              />
-            );
-          })}
+          {query && <SearchItem string={query} isFocusing={false} />}
+          {!terms || terms.length === ZERO ? (
+            <p>추천 검색어 없음</p>
+          ) : (
+            <>
+              <p>추천 검색어</p>
+              {terms.map((term, idx) => (
+                <SearchItem
+                  string={term.sickNm}
+                  key={idx}
+                  isFocusing={focusIdx === idx}
+                />
+              ))}
+            </>
+          )}
         </>
       )}
     </RelatedSearchWrap>
@@ -51,4 +59,10 @@ const RelatedSearchWrap = styled.div`
     color: ${colors.gray};
     margin: 0;
   }
+`;
+
+const LoadingText = styled.p`
+  font-weight: bold;
+  padding: 10px 15px;
+  margin: 0;
 `;
