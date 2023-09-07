@@ -45,6 +45,13 @@ const InputWrap = styled.label`
 
   @media (max-width: 600px) {
     border-radius: 0;
+    padding: 0;
+    margin: 0;
+
+    &:focus-within {
+      border: none;
+      border-bottom: 2px solid ${colors.primary};
+    }
   }
 `;
 
@@ -66,5 +73,14 @@ const StyledInput = styled.input`
     background-position: 0 center;
     background-repeat: no-repeat;
     text-indent: 6%;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 1rem;
+    
+    &::placeholder {
+      background-size: 10%;
+      text-indent: 10%;
+    }
   }
 `;

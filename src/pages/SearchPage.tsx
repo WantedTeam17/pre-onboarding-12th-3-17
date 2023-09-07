@@ -33,4 +33,8 @@ const Container = styled.div`
       display: none;
     }
   }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;

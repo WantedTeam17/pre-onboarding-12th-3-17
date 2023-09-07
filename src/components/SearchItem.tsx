@@ -46,6 +46,7 @@ const SearchItemBox = styled.div`
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  text-align: left;
 
   & > p {
     margin: 0.5rem;
