@@ -4,8 +4,8 @@ import { colors } from "../constants/colors";
 
 interface InputProps {
   handlerFocus: () => void;
-  handlerChange: (target: string) => any;
-  handlerPressKey: (target: string) => any;
+  handlerChange: (target: string) => void;
+  handlerPressKey: (target: string) => void;
   value: string;
 }
 
@@ -43,7 +43,7 @@ const InputWrap = styled.label`
   margin: 0.6rem 0;
 
   &:focus-within {
-    border: 2px solid ${colors.primary};
+    box-shadow: 0 0 0 0.1rem ${colors.primary};
   }
 
   @media (max-width: 600px) {
@@ -61,6 +61,7 @@ const StyledInput = styled.input`
   &:focus {
     outline: none;
     background-image: none;
+    caret-color: ${colors.primary};
   }
 
   &::placeholder {
