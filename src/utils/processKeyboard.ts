@@ -19,6 +19,9 @@ const processKeyboard = (
 
     setValue(terms[focusIdx].sickNm);
   }
+  if (target === "Escape") {
+    setFocusIdx(-1);
+  }
 };
 
 export default processKeyboard;
