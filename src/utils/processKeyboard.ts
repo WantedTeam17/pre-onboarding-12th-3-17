@@ -8,13 +8,13 @@ const processKeyboard = (
   setValue: React.Dispatch<React.SetStateAction<string>>,
   terms: TermsType[]
 ) => {
-  if (target === "ArrowDown") {
+  if (terms && target === "ArrowDown") {
     setFocusIdx((focusIdx + 1) % terms.length);
   }
-  if (target === "ArrowUp") {
+  if (terms && target === "ArrowUp") {
     setFocusIdx((focusIdx - 1 + terms.length) % terms.length);
   }
-  if (target === "Enter") {
+  if (terms && target === "Enter") {
     if (focusIdx < 0 || focusIdx >= terms.length) return;
 
     setValue(terms[focusIdx].sickNm);
