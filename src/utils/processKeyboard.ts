@@ -15,6 +15,8 @@ const processKeyboard = (
     setFocusIdx(focusIdx - 1);
   }
   if (target === "Enter") {
+    if (focusIdx < 0 || focusIdx >= terms.length) return;
+
     setValue(terms[focusIdx].sickNm);
   }
 };
