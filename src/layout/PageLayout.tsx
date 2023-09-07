@@ -1,7 +1,11 @@
 import Header from "./Header";
 import { styled } from "styled-components";
 
-const PageLayout = ({ children }: any) => {
+interface PageLayoutProps {
+  children: React.ReactNode;
+}
+
+const PageLayout = ({ children }: PageLayoutProps) => {
   return (
     <Layout>
       <Header />

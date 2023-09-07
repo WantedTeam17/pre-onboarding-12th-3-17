@@ -6,8 +6,8 @@ import Button from "./Button";
 interface InputProps {
   handlerClear: () => void;
   handlerFocus: () => void;
-  handlerChange: (target: string) => any;
-  handlerPressKey: (target: string) => any;
+  handlerChange: (target: string) => void;
+  handlerPressKey: (target: string) => void;
   value: string;
 }
 
@@ -23,7 +23,10 @@ const Input = ({
       <StyledInput
         placeholder="질환명을 입력해 주세요"
         onFocus={() => handlerFocus()}
-        onBlur={() => handlerFocus()}
+        onBlur={() => {
+          handlerFocus();
+          handlerChange("");
+        }}
         onChange={(e) => handlerChange(e.target.value)}
         onKeyDown={(e) => handlerPressKey(e.key)}
         value={value}
@@ -44,7 +47,7 @@ const InputWrap = styled.label`
   margin: 0.6rem 0;
 
   &:focus-within {
-    border: 2px solid ${colors.primary};
+    box-shadow: 0 0 0 0.1rem ${colors.primary};
   }
 
   @media (max-width: 600px) {
@@ -68,8 +71,10 @@ const StyledInput = styled.input`
   font-size: 1.2rem;
   height: 70px;
 
-  &.focused {
-    border-color: #0072c6;
+  &:focus {
+    outline: none;
+    background-image: none;
+    caret-color: ${colors.primary};
   }
 
   &::placeholder {

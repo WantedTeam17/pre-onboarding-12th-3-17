@@ -5,18 +5,22 @@ import { TermsType } from "../constants/@type/termsType";
 import { KOREAN_REGEX } from "../constants/regex";
 
 const useDebounce = (value: string, delay: number) => {
-  const [debounceValue, setDebounceValue] = useState(value);
+  const [debounceValue, setDebounceValue] = useState<string>(value);
   const [data, setData] = useState<TermsType[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    if (!value.trim()) {
       setDebounceValue(value);
-    }, delay);
+    } else {
+      const timer = setTimeout(() => {
+        setDebounceValue(value);
+      }, delay);
 
-    return () => {
-      clearTimeout(timer);
-    };
+      return () => {
+        clearTimeout(timer);
+      };
+    }
   }, [value]);
 
   useEffect(() => {

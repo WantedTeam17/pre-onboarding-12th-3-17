@@ -8,13 +8,15 @@ import styled from "styled-components";
 
 const SearchBar = () => {
   const [isFocus, handlerFocus] = useFocus();
-  const [focusIdx, setFocusIdx] = useState(-1);
-  const [query, setQuery] = useState("");
+  const [focusIdx, setFocusIdx] = useState<number>(-1);
+  const [query, setQuery] = useState<string>("");
 
   const { data, isLoading } = useDebounce(query, 500);
 
   const handlerChange = (target: string) => {
     setQuery(target);
+
+    if (target === "") setFocusIdx(-1);
   };
 
   const handlerPressKey = (target: string) => {
