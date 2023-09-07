@@ -9,10 +9,10 @@ const processKeyboard = (
   terms: TermsType[]
 ) => {
   if (target === "ArrowDown") {
-    setFocusIdx(focusIdx + 1);
+    setFocusIdx((focusIdx + 1) % terms.length);
   }
   if (target === "ArrowUp") {
-    setFocusIdx(focusIdx - 1);
+    setFocusIdx((focusIdx - 1 + terms.length) % terms.length);
   }
   if (target === "Enter") {
     if (focusIdx < 0 || focusIdx >= terms.length) return;
