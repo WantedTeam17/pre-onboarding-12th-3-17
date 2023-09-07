@@ -23,12 +23,17 @@ const SearchBar = () => {
     processKeyboard(target, focusIdx, setFocusIdx, setQuery, data);
   };
 
+  const handlerClear = () => {
+    setQuery("");
+  };
+
   return (
     <SearchContainer>
       <Input
         handlerFocus={handlerFocus}
         handlerChange={handlerChange}
         handlerPressKey={handlerPressKey}
+        handlerClear={handlerClear}
         value={query}
       />
       {isFocus && (
@@ -46,7 +51,10 @@ const SearchBar = () => {
 export default SearchBar;
 
 const SearchContainer = styled.div`
+  max-width: 490px;
   width: 100%;
+  margin: 0 auto;
+  z-index: 1000;
 
   @media (max-width: 600px) {
     width: 100vw;

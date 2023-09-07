@@ -95,6 +95,7 @@ const RelatedSearchWrap = styled.div`
 
   @media (max-width: 600px) {
     border-radius: 0;
+    padding: 0.8rem;
   }
 `;
 
