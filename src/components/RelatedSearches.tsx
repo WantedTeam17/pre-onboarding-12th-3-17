@@ -13,9 +13,14 @@ interface RelatedSearchProps {
   isLoading: boolean;
 }
 
-const RelatedSearches = ({ query, focusIdx, terms, isLoading }: RelatedSearchProps) => {
+const RelatedSearches = ({
+  query,
+  focusIdx,
+  terms,
+  isLoading,
+}: RelatedSearchProps) => {
   // TODO: localstorage에서 캐싱되어 있는 검색어들 불러오기
-  
+
   return (
     <RelatedSearchWrap>
       {isLoading ? (
@@ -53,6 +58,12 @@ const RelatedSearchWrap = styled.div`
   border-radius: 1.875rem;
   background: ${colors.white};
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
+  max-height: 25rem;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   & > p {
     color: ${colors.gray};
