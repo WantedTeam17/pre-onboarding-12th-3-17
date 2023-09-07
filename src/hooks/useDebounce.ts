@@ -9,13 +9,17 @@ const useDebounce = (value: string, delay: number) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    if (!value.trim()) {
       setDebounceValue(value);
-    }, delay);
+    } else {
+      const timer = setTimeout(() => {
+        setDebounceValue(value);
+      }, delay);
 
-    return () => {
-      clearTimeout(timer);
-    };
+      return () => {
+        clearTimeout(timer);
+      };
+    }
   }, [value]);
 
   useEffect(() => {
