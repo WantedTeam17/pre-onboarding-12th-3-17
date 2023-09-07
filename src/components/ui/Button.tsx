@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { styled } from "styled-components";
-import { colors } from "../constants/colors";
+import { colors } from "../../constants/colors";
 
 const Button = () => {
   return (

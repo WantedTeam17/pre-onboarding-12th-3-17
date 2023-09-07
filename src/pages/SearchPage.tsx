@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
-import SearchBar from "../components/SearchBar";
 import MainImg1 from "/public/assets/mainImg-1.svg";
 import MainImg2 from "/public/assets/mainImg-2.svg";
 import MainImg3 from "/public/assets/mainImg-3.svg";
 import { colors } from "../constants/colors";
+import SearchBar from "../components/search/SearchBar";
 
 const SearchPage = () => {
   return (

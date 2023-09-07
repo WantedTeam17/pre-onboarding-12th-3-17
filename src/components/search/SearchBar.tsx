@@ -1,11 +1,11 @@
-import RelatedSearches from "./RelatedSearches";
 import Input from "./Input";
-import useFocus from "../hooks/useFocus";
 import { useState } from "react";
-import useDebounce from "../hooks/useDebounce";
-import processKeyboard from "../utils/processKeyboard";
 import styled from "styled-components";
-import { useRecentSearches } from "../hooks/useRecentSearches";
+import useFocus from "../../hooks/useFocus";
+import RelatedSearches from "./RelatedSearches";
+import useDebounce from "../../hooks/useDebounce";
+import processKeyboard from "../../utils/processKeyboard";
+import { useRecentSearches } from "../../hooks/useRecentSearches";
 
 const SearchBar = () => {
   const [isFocus, handlerFocus] = useFocus();
