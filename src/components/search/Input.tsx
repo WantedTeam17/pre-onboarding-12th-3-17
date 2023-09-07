@@ -8,6 +8,7 @@ interface InputProps {
   handlerFocus: () => void;
   handlerChange: (target: string) => void;
   handlerPressKey: (target: string) => void;
+  handleEnter: () => void;
   value: string;
 }
 
@@ -16,8 +17,14 @@ const Input = ({
   handlerChange,
   handlerPressKey,
   handlerClear,
+  handleEnter,
   value,
 }: InputProps) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleEnter();
+    }
+  };
   return (
     <InputWrap>
       <StyledInput
@@ -29,6 +36,7 @@ const Input = ({
         }}
         onChange={(e) => handlerChange(e.target.value)}
         onKeyDown={(e) => handlerPressKey(e.key)}
+        onKeyPress={handleKeyPress}
         value={value}
       ></StyledInput>
       <ClearButton value={value} handlerClear={handlerClear} />
