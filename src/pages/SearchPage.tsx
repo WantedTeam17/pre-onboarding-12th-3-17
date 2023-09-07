@@ -28,5 +28,9 @@ const Container = styled.div`
 
   & > h1 {
     margin: 2rem 0;
+
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
 `;

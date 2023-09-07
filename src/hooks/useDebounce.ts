@@ -6,6 +6,7 @@ import { TermsType } from "../constants/@type/termsType";
 const useDebounce = (value: string, delay: number) => {
   const [debounceValue, setDebounceValue] = useState(value);
   const [data, setData] = useState<TermsType[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -19,6 +20,8 @@ const useDebounce = (value: string, delay: number) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true);
+
       let tempData = localCache.get(debounceValue);
 
       if (!tempData && debounceValue) {
@@ -27,12 +30,13 @@ const useDebounce = (value: string, delay: number) => {
       }
 
       setData(tempData);
+      setIsLoading(false);
     };
 
     fetchData();
   }, [debounceValue]);
 
-  return data;
+  return { data, isLoading };
 };
 
 export default useDebounce;
