@@ -7,8 +7,8 @@ import processKeyboard from "../utils/processKeyboard";
 
 const SearchBar = () => {
   const [isFocus, handlerFocus] = useFocus();
-  const [focusIdx, setFocusIdx] = useState(-1);
-  const [query, setQuery] = useState("");
+  const [focusIdx, setFocusIdx] = useState<number>(-1);
+  const [query, setQuery] = useState<string>("");
 
   const terms = useDebounce(query, 500);
 
