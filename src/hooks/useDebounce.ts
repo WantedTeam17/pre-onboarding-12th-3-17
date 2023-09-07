@@ -20,7 +20,7 @@ const useDebounce = (value: string, delay: number) => {
   }, [value]);
 
   useEffect(() => {
-    if (KOREAN_REGEX.test(debounceValue)) return;
+    if (!KOREAN_REGEX.test(debounceValue)) return;
 
     const fetchData = async () => {
       setIsLoading(true);
