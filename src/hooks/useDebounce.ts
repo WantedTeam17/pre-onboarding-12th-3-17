@@ -4,9 +4,9 @@ import { Axios } from "../api/axios";
 import { TermsType } from "../constants/@type/termsType";
 
 const useDebounce = (value: string, delay: number) => {
-  const [debounceValue, setDebounceValue] = useState(value);
+  const [debounceValue, setDebounceValue] = useState<string>(value);
   const [data, setData] = useState<TermsType[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
