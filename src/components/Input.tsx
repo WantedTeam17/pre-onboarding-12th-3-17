@@ -77,10 +77,6 @@ const StyledInput = styled.input`
     caret-color: ${colors.primary};
   }
 
-  &.focused {
-    border-color: #0072c6;
-  }
-
   &::placeholder {
     background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-256.png);
     background-size: 6%;
