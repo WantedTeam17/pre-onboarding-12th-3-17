@@ -16,8 +16,6 @@ interface RelatedSearchProps {
 const RelatedSearches = ({ query, focusIdx, terms, isLoading }: RelatedSearchProps) => {
   // TODO: localstorage에서 캐싱되어 있는 검색어들 불러오기
   
-<LoadingText>로딩 중..</LoadingText>
-
   return (
     <RelatedSearchWrap>
       {isLoading ? (
