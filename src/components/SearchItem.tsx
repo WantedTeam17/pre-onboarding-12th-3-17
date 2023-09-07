@@ -9,7 +9,6 @@ interface SearchItemProps {
 }
 
 const SearchItem = ({ string, isFocusing, keyword }: SearchItemProps) => {
-
   const highlightKeyword = (text: string, keyword: string): JSX.Element => {
     const startIndex = text.toLowerCase().indexOf(keyword.toLowerCase());
     if (startIndex === -1) return <>{text}</>;
@@ -34,7 +33,9 @@ const SearchItem = ({ string, isFocusing, keyword }: SearchItemProps) => {
       }}
     >
       <AiOutlineSearch color={colors.gray} size={20} />
-      <p>{keyword ? highlightKeyword(string, keyword) : string}</p>
+      <p style={{ width: "90%" }}>
+        {keyword ? highlightKeyword(string, keyword) : string}
+      </p>
     </SearchItemBox>
   );
 };
@@ -46,6 +47,7 @@ const SearchItemBox = styled.div`
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  text-align: left;
 
   & > p {
     margin: 0.5rem;
@@ -54,5 +56,5 @@ const SearchItemBox = styled.div`
 
 const StrongText = styled.strong`
   font-weight: bold;
-  color: red;  // 또는 다른 원하는 색상
+  color: red; // 또는 다른 원하는 색상
 `;
