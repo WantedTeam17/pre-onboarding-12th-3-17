@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { localCache } from "../utils/localCaching";
-import { Axios } from "../api/axios";
+import { Axios } from "../api/AxiosClient";
 import { TermsType } from "../constants/@type/termsType";
 import { KOREAN_REGEX } from "../constants/regex";
+import { localCache } from "../utils/LocalCache";
 
 const useDebounce = (value: string, delay: number) => {
   const [debounceValue, setDebounceValue] = useState<string>(value);
