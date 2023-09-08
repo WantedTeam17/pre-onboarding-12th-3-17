@@ -21,7 +21,7 @@ jobs:
       uses: cloudtype-github-actions/deploy@v1
       with:
         token: ${{ secrets.CLOUDTYPE_TOKEN }}
-        project: 스페이스명/프로젝트명
+        project: h0onnn/wanted-pre-onboarding
         stage: main
         yaml: |
           name: pre-onboarding-12th-3-17
