@@ -25,7 +25,7 @@ jobs:
         stage: main
         yaml: |
           name: pre-onboarding-12th-3-17
-          app: react.js
+          app: web
             options:
               git:
                 ref: ${{ github.ref }}
