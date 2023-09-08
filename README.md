@@ -16,12 +16,25 @@ _원티드 프리온보딩 인턴십 17팀 3주차 기업과제_
 | <img src="https://avatars.githubusercontent.com/u/74824057?v=4" alt='@ramrami-B' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/104710243?v=4" alt='@HYBEN09' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/88275787?v=4" alt='@jade0819' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/54127322?v=4" alt='@Akows' width="130" height="130"> | <img src="https://avatars.githubusercontent.com/u/116232939?v=4" alt='@H0onnn' width="130" height="130"> | 
 | [@ramrami-B](https://github.com/ramrami-B)                                                                 | [@HYBEN09](https://github.com/HYBEN09)                                                                   | [@jade0819](https://github.com/jade0819)                                                             | [@Akows](https://github.com/Akows)                                                              | [@H0onnn](https://github.com/H0onnn)
 
-## 프로젝트 링크
+<br />
+
+## 🙌🏻 17팀의 협업
+- 매주 [노션 팀스페이스](https://blushing-dry-254.notion.site/TEAMSPACE-ff2aa14b65a64ab0a6921460be48489c?pvs=4)에 과제 요구사항을 꼼꼼하게 기록하고, 회의록을 작성해요!
+- [코딩 컨벤션](https://blushing-dry-254.notion.site/843c479139054c8e915a2b1aa28f51c6?pvs=4)을 정해서 함께 지켜요
+- 최소 주 3회 이상 회의, 모각코 등을 진행하며 함께 개발해요! (팀 노션 하단 📸 Selfi 참고)
+- [GitHub 프로젝트](https://github.com/orgs/WantedTeam17/projects/1)를 통해 할 일과 일정을 관리해요.
+- 각자의 task는 GitHub Issues에 기록해요! [이슈 기록 예시](https://github.com/WantedTeam17/pre-onboarding-12th-3-17/issues/25)
+
+<br />
+
+## 🖥️ 프로젝트 링크
 [🔗Link](https://web-pre-onboarding-12th-3-17-eu1k2lllc2s1v2.sel3.cloudtype.app/)
 
 FE 배포는 `Cloud Type`을 이용하였습니다.
 
-## 프로젝트 실행 가이드
+<br />
+
+## 💡 프로젝트 실행 가이드
 - 실행을 위해 다음 Node version이 필요합니다.
   [Node.js 18.17.0](https://nodejs.org/ca/blog/release/v18.17.0/)
 
@@ -37,7 +50,9 @@ $ npm install
 $ npm run start
 ```
 
-## 기술 스택
+<br />
+
+## ⚒️ 기술 스택
 
 #### Development
 
@@ -56,6 +71,8 @@ $ npm run start
 
 ### Styling
 <img src="https://img.shields.io/badge/styled component-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>
+
+<br />
 
 ## 🚀 프로젝트 기술 구현에 대한 논의
 
@@ -301,6 +318,8 @@ export default processKeyboard;
 
 [백엔드 서버 배포 과정](https://www.notion.so/React-js-Typescript-Vercel-API-64e56592ecd94169b08fa5f1425e78db)
 
+<br />
+
 ## 아키텍쳐
 
 ### 디렉토리 구조
@@ -367,6 +386,8 @@ export default processKeyboard;
 └── webpack.config.js
 ```
 
+<br />
+
 # 🔗 다이어그램
 ### UI 컴포넌트 구조
 <img src="https://my-web-contents-bucket.s3.ap-northeast-2.amazonaws.com/ui.drawio.png" />
@@ -374,3 +395,5 @@ export default processKeyboard;
 
 ### UML (Sequence Diagram)
 <img src="https://my-web-contents-bucket.s3.ap-northeast-2.amazonaws.com/sequence.drawio.png" />
+
+
