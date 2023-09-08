@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 👋🏻 Git Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
     - name: 🌱 Connect Deploy Key
       uses: cloudtype-github-actions/connect@v1
       with:
@@ -25,13 +25,14 @@ jobs:
         stage: main
         yaml: |
           name: pre-onboarding-12th-3-17
-          app: react.js
-            options:
-              git:
-                ref: ${{ github.ref }}
-                url: https://github.com/${{ github.repository }}.git
-              port: 8080‎
-              nodeversion: 18
-              install: npm ci
-              build: npm build
-              start: npm start
+          app: web
+          options:
+            nodeversion: "18"
+            spa: true
+            buildenv:
+             - name: REAT_APP_API_URL
+               value: https://preonboardingapiserver.vercel.app/api/data
+          context:
+            git:
+              url: https://github.com/WantedTeam17/pre-onboarding-12th-3-17.git
+              branch: main
