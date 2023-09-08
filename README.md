@@ -111,9 +111,9 @@ $ npm run start
 > 캐싱 데이터의 유효시간을 고려하여 expire time을 적용했습니다. class의 private field 내 #now (현재시간), #expireTime (유효시간) 을 설정하여 set 메소드에서 storage에 데이터를 저장할 때, `expiry: this.#now + this.#expireTime` 구문으로 데이터의 유효시간을 설정합니다. 그 후 get 메소드를 통해 storage 값을 가져올 시 조건문을 통해 유효시간을 검사하게 됩니다. 만약, 항목의 유효시간이 지날 경우 localstorage.removeItem을 이용하여 캐싱 데이터를 삭제하고 null을 반환합니다.
 
 ```ts
-// localCaching.ts
+// LocalCache.ts
 
-class localCaching {
+class LocalCache {
   #expireTime;
   #now;
 
@@ -144,7 +144,7 @@ class localCaching {
   }
 }
 
-export const localCache = new localCaching();
+export const localCache = new LocalCache();
 
 // data fetching logic ..
 
@@ -187,8 +187,8 @@ Input에 사용자가 검색어를 입력할 때 입력마다 API가 호출되�
 // useDebounce.ts
 
 import { useEffect, useState } from "react";
-import { localCache } from "../utils/localCaching";
-import { Axios } from "../api/axios";
+import { localCache } from "../utils/LocalCache";
+import { Axios } from "../api/AxiosClient";
 import { TermsType } from "../constants/@type/termsType";
 import { KOREAN_REGEX } from "../constants/regex";
 
@@ -338,7 +338,7 @@ export default processKeyboard;
 ├── src
 │   ├── App.tsx
 │   ├── api
-│   │   └── axios.ts
+│   │   └── AxiosClient.ts
 │   ├── components
 │   │   ├── RecentSearchList.tsx
 │   │   ├── search
@@ -372,7 +372,7 @@ export default processKeyboard;
 │   │   └── SearchPage.tsx
 │   ├── routes.tsx
 │   └── utils
-│       ├── localCaching.ts
+│       ├── LocalCache.ts
 │       └── processKeyboard.ts
 ├── tsconfig.json
 ├── webpack
